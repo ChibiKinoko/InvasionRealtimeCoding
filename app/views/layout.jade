@@ -6,10 +6,10 @@ html
     script(src='/lib/jquery.js')
     script(src='/lib/bootstrap/js/bootstrap.min.js')
     script(src="/socket.io/socket.io.js")
-    script(src="js/client.js")
+    script(src="js/client.js" defer)
 
     block head
-  body
-    //- h1 Hello #{name}
+      body(ng-app="app")
+      //- h1 Hello #{name}
 
     block content

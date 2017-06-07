@@ -1,4 +1,4 @@
-extends layout.jade
+ extends layout.jade
 
 block head 
   link(rel="stylesheet", href="css/login.css")
@@ -21,7 +21,7 @@ block content
             .panel-body
               .row
                 .col-lg-12
-                  form#login-form(action='#', method='post', role='form', style='display: block;')
+                  form#login-form(action='/login', method='post', role='form', style='display: block;')
                     .form-group
                       label(for='username') Username
                       input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
@@ -32,7 +32,7 @@ block content
                       .row
                         .col-sm-6.col-sm-offset-3
                           input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
-                  form#register-form(action='#', method='post', role='form', style='display: none;')
+                  form#register-form(action='/register', method='post', role='form', style='display: none;')
                     .form-group
                       label(for='username') Username
                       input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
