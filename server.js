@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var cookieparser = require("cookieparser");
-var flash = require('express-flash');
+var flash = require('connect-flash');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 

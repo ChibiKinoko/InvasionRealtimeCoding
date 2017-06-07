@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my_irc');
+// mongoose.connect('mongodb://localhost/my_irc');
 // mongoose.connect('mongodb://laure:freiheit@127.0.0.1:27017/my_irc?authSource=admin');
+mongoose.connect('mongodb://mongol:mongol@127.0.0.1:27017/my_irc');
 
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'connection error:'));

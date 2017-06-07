@@ -2,6 +2,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var bcrypt = require('bcrypt-nodejs');
+
 // create a schema
 var UserSchema = new Schema({
     email: {
@@ -19,6 +21,15 @@ var UserSchema = new Schema({
         required: true
     },
 });
+
+
+
+UserSchema.methods.generateHash = function(password) {  
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+UserSchema.methods.validPassword = function(password) {  
+  return bcrypt.compareSync(password, this.password);
+};
 
 // the schema is useless so far
 // we need to create a model using it
