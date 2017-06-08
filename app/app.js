@@ -4,5 +4,10 @@ module.exports = function(io) {
         socket.on('my other event', function(data) {
             // console.log(data);
         });
+	    
+	    function login() {
+	    }
     });
+
+
 }

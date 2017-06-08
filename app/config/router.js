@@ -14,6 +14,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/home', isLoggedIn, function(req, res) {
+    	console.log(req.session.passport.user);
         res.render('home.jade');
     });
 
@@ -35,7 +36,7 @@ module.exports = function(app, passport) {
     }));
 
     app.post('/register', passport.authenticate('signup', {
-        successRedirect: '/login',
+        successRedirect: '/register',
         failureRedirect: '/register',
         failureFlash: true
     }));
