@@ -5,7 +5,7 @@ block content
     .row
       .span4.offset4.well
         legend Inscription
-        if message
+        if (message.length > 0)
           .alert.alert-danger #{message}
         form#register-form(method='POST', action='/register', accept-charset='UTF-8')
           input#username.span4(type='text', name='username', placeholder='Pseudo' required)

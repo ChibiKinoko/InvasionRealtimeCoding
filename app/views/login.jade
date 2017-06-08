@@ -1,48 +1,13 @@
- extends layout.jade
-
-block head 
-  link(rel="stylesheet", href="css/login.css")
-  script(src='js/login.js')
-
+extends layout.jade
 
 block content
-  #fullscreen_bg.fullscreen_bg
-    #regContainer.container
-      .row
-        .col-md-6.col-md-offset-3
-          .panel.panel-login
-            .panel-heading
-              .row
-                .col-xs-6
-                  a#login-form-link.active(href='#') Login
-                .col-xs-6
-                  a#register-form-link(href='#') Register
-              hr
-            .panel-body
-              .row
-                .col-lg-12
-                  form#login-form(action='/login', method='post', role='form', style='display: block;')
-                    .form-group
-                      label(for='username') Username
-                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
-                    .form-group
-                      label(for='password') Password
-                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
-                    .form-group
-                      .row
-                        .col-sm-6.col-sm-offset-3
-                          input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
-                  form#register-form(action='/register', method='post', role='form', style='display: none;')
-                    .form-group
-                      label(for='username') Username
-                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
-                    .form-group
-                      label(for='password') Password
-                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
-                    .form-group
-                      label(for='confirm-password') Confirm password
-                      input#confirm-password.form-control(type='password', name='confirm-password', tabindex='2', placeholder='Confirm Password')
-                    .form-group
-                      .row
-                        .col-sm-6.col-sm-offset-3
-                          input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Register Now')
+  .container
+    .row
+      .span4.offset4.well
+        legend Connexion
+        if (message.length > 0)
+          .alert.alert-danger #{message}
+        form#login-form(method='POST', action='/login', accept-charset='UTF-8')
+          input#email.span4(type='email', name='email', placeholder='Email' required)
+          input#password.span4(type='password', name='password', placeholder='Mot de passe' required)
+          button.btn.btn-info.btn-block(type='submit', name='submit') Se connecter

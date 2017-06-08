@@ -1,0 +1,9 @@
+extends layout.jade
+
+block content
+  .col-sm-10 col-sm-offset-1
+    .text-center
+      h1 #{error.status} : #{message}
+      pre #{error.stack}
+      a(href="/" class="btn btn-default")
+        span.fa.fa-home Home
