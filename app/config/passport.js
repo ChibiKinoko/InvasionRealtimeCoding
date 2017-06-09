@@ -1,6 +1,9 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/User');
 
+
+var username;
+
 module.exports = function(passport) {
 
   passport.serializeUser(function(user, done) {
@@ -51,11 +54,20 @@ module.exports = function(passport) {
         return done(err);
       if (!user)
         return done(null, false, req.flash('loginMessage', 'No user found.'));
-      if (!user.validPassword(password))
-        req.session.user = user;
-      return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+      if (!user.validPassword(password)) {
+        // console.log(user);
+        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+      }
+      req.session.user = user;
+      console.log(user);
+      console.log('toto');
+      username = user;
       return done(null, user);
     });
   }));
+
+  function getUsername() {
+    return username;
+  }
 
 };

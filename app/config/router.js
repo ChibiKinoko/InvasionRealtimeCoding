@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/home', isLoggedIn, function(req, res) {
-    	console.log(req.session.passport.user);
+    	// console.log(req.session.passport.user);
         res.render('home.jade');
     });
 

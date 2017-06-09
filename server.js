@@ -45,7 +45,7 @@ app.use(flash());
 
 require('./app/config/passport')(passport);
 require('./app/config/router')(app, passport);
-require('./app/app')(io);
+require('./app/app');
 
 
 // ERRORS ==========================================================================
